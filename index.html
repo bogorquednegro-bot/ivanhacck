@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ivancito x Katycita XITS</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#02040d;--n:#00d4ff;--n2:#2a7bff;--soft:#6fa8ff;--card:rgba(6,16,40,.72);--tx:#d9ecff;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--tx);font-family:Rajdhani,system-ui,sans-serif;font-size:18px;overflow-x:hidden}
+#sky{position:fixed;inset:0;z-index:-1;width:100%;height:100%}
+h1,h2,h3,.btn{font-family:Orbitron,Impact,sans-serif;text-transform:uppercase}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;border-bottom:1px solid rgba(0,212,255,.25);background:rgba(2,4,13,.6);backdrop-filter:blur(8px);position:sticky;top:0;z-index:5}
+.logo{font-family:Orbitron;font-weight:900;color:var(--n);text-shadow:0 0 12px var(--n);letter-spacing:2px;font-size:15px}
+.hero{text-align:center;padding:12vh 5vw 6vh}
+.hero h1{font-size:clamp(30px,7vw,78px);margin:0;font-weight:900;color:#fff;text-shadow:0 0 8px var(--n),0 0 28px var(--n),0 0 60px var(--n2);animation:fl 3s infinite}
+.hero h1 span{color:var(--n)}
+.hero p{color:var(--soft);letter-spacing:3px;font-weight:700;margin:16px 0 26px}
+@keyframes fl{0%,92%,100%{opacity:1}94%{opacity:.7}96%{opacity:1}98%{opacity:.8}}
+.btn{border:1px solid var(--n);background:linear-gradient(135deg,rgba(0,212,255,.18),rgba(42,123,255,.3));color:#fff;padding:12px 22px;font-weight:800;font-size:13px;letter-spacing:1px;cursor:pointer;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:0 0 18px rgba(0,212,255,.35);transition:.2s}
+.btn:hover{background:var(--n);color:#00131f;box-shadow:0 0 34px var(--n)}
+.btn.s{padding:9px 14px;font-size:11px}
+.wrap{max-width:1150px;margin:auto;padding:0 5vw 80px}
+h2{color:var(--n);text-shadow:0 0 14px var(--n);font-size:22px;margin:40px 0 18px;border-left:4px solid var(--n);padding-left:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid rgba(0,212,255,.35);padding:20px;position:relative;backdrop-filter:blur(6px);transition:.25s}
+.card:hover{transform:translateY(-5px);box-shadow:0 0 30px rgba(0,212,255,.45);border-color:var(--n)}
+.card h3{margin:0 0 12px;font-size:16px;color:#fff;text-shadow:0 0 10px var(--n2)}
+.plan{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 0;border-top:1px dashed rgba(111,168,255,.3)}
+.plan b{color:var(--n);font-family:Orbitron;font-size:15px}
+.pay{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.copy{background:rgba(0,212,255,.1);border:1px solid var(--n2);padding:10px;margin-top:8px;display:flex;justify-content:space-between;gap:8px;align-items:center;word-break:break-all;color:var(--soft)}
+.wa{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:9;background:#02101f;border:2px solid var(--n);color:#fff;text-decoration:none;font-family:Orbitron;font-size:12px;font-weight:800;padding:14px 18px;border-radius:40px;box-shadow:0 0 24px var(--n);animation:pu 1.8s infinite}
+@keyframes pu{50%{box-shadow:0 0 44px var(--n),0 0 8px #fff inset}}
+.modal{position:fixed;inset:0;background:rgba(0,3,12,.85);z-index:20;display:none;align-items:center;justify-content:center;padding:16px;overflow:auto}
+.modal.on{display:flex}
+.box{width:100%;max-width:480px;background:#040c20;border:1px solid var(--n);box-shadow:0 0 50px rgba(0,212,255,.5);padding:22px;max-height:94vh;overflow:auto}
+.box h3{margin:0 0 6px;color:var(--n);font-size:17px}
+label{display:block;margin:12px 0 4px;color:var(--soft);font-weight:700;font-size:15px}
+input[type=text],input[type=email],input[type=tel]{width:100%;background:#020816;border:1px solid var(--n2);color:#fff;padding:11px;font:inherit}
+input:focus{outline:none;border-color:var(--n);box-shadow:0 0 12px var(--n)}
+.sum{background:rgba(0,212,255,.1);border:1px solid var(--n2);padding:10px;margin:8px 0}
+#prev{max-width:100%;max-height:150px;margin-top:8px;display:none;border:1px solid var(--n)}
+.msg{color:var(--n);margin-top:10px;font-size:15px}
+.x{float:right;background:none;border:0;color:var(--n);font-size:24px;cursor:pointer}
+.order{border:1px solid var(--n2);padding:10px;margin:8px 0;font-size:15px}
+footer{text-align:center;color:var(--soft);padding:30px;border-top:1px solid rgba(0,212,255,.2);font-size:14px}
+</style>
+</head>
+<body>
+<canvas id="sky"></canvas>
+<header><div class="logo">IVANCITO × KATYCITA XITS</div><button class="btn s" onclick="go('productos')">Comprar</button></header>
+
+<section class="hero">
+<h1>Ivancito <span>×</span> Katycita<br><span>XITS</span></h1>
+<p>DOMINA LA PARTIDA · ACCESO INSTANTÁNEO · SOPORTE REAL</p>
+<button class="btn" onclick="go('productos')">Ver productos</button>
+</section>
+
+<main class="wrap">
+<h2 id="productos">Productos</h2>
+<div class="grid" id="grid"></div>
+
+<h2>Métodos de pago</h2>
+<div class="pay">
+<div class="card"><h3>Binance Pay</h3>ID de Binance<div class="copy"><span>612100742</span><button class="btn s" onclick="cp('612100742',this)">Copiar</button></div></div>
+<div class="card"><h3>Visa</h3>Cuenta<div class="copy"><span>4031630636408824</span><button class="btn s" onclick="cp('4031630636408824',this)">Copiar</button></div></div>
+</div>
+
+<div id="adminBox" style="display:none"><h2>Pedidos recibidos</h2><div id="orders"></div></div>
+</main>
+
+<footer>© Ivancito × Katycita XITS · Soporte: +1 (702) 421-8243</footer>
+<a class="wa" href="https://wa.me/17024218243" target="_blank" rel="noopener">📞 +1 (702) 421-8243</a>
+
+<div class="modal" id="m"><div class="box">
+<button class="x" onclick="closeM()">×</button>
+<h3>Confirmar compra</h3>
+<div class="sum" id="sum"></div>
+<label>Tu correo o número de teléfono</label>
+<input type="text" id="contact" placeholder="correo@gmail.com o +52 ...">
+<label>Tu nombre / usuario</label>
+<input type="text" id="uname">
+<label>Pagar por</label>
+<div class="sum">Binance ID: <b>612100742</b><br>Visa: <b>4031630636408824</b></div>
+<label>Sube tu comprobante de pago</label>
+<input type="file" id="file" accept="image/*">
+<img id="prev" alt="">
+<br><br><button class="btn" id="send" onclick="submitOrder()">Enviar pedido</button>
+<div class="msg" id="msg"></div>
+</div></div>
+
+<script>
+const P=[
+["External iOS",[["1 día",5],["15 días",15],["32 días",25]]],
+["LV Team PC",[["31 días",35],["Permanente",50]]],
+["BR Mod",[["15 días",15],["31 días",25]]],
+["Android",[["15 días",15]]],
+["Panel Personalizado",[["Único",80]]],
+["Supreme PC",[["31 días",45]]]];
+const PHONE="17024218243";
+let sel=null,proof=null;
+const $=id=>document.getElementById(id);
+$("grid").innerHTML=P.map((p,i)=>`<div class="card"><h3>${p[0]}</h3>${p[1].map((pl,j)=>`<div class="plan"><span>${pl[0]}</span><b>$${pl[1]} USD</b><button class="btn s" onclick="buy(${i},${j})">Comprar</button></div>`).join("")}</div>`).join("");
+function go(id){$(id).scrollIntoView({behavior:"smooth"})}
+function cp(t,b){try{navigator.clipboard.writeText(t)}catch(e){}b.textContent="¡Copiado!";setTimeout(()=>b.textContent="Copiar",1500)}
+function buy(i,j){sel={prod:P[i][0],plan:P[i][1][j][0],price:P[i][1][j][1]};proof=null;$("file").value="";$("prev").style.display="none";$("msg").textContent="";
+$("sum").innerHTML=`<b>${sel.prod}</b> — ${sel.plan}<br>Total: <b>$${sel.price} USD</b>`;$("m").classList.add("on")}
+function closeM(){$("m").classList.remove("on")}
+$("file").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const s=Math.min(1,700/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*s;c.height=im.height*s;c.getContext("2d").drawImage(im,0,0,c.width,c.height);proof=c.toDataURL("image/jpeg",.6);$("prev").src=proof;$("prev").style.display="block"};im.src=r.result};r.readAsDataURL(f)};
+async function submitOrder(){
+const contact=$("contact").value.trim(),name=$("uname").value.trim();
+if(!contact||!name){$("msg").textContent="Escribe tu correo/teléfono y tu nombre.";return}
+if(!proof){$("msg").textContent="Sube tu comprobante de pago.";return}
+const o={...sel,contact,name,proof,at:new Date().toISOString(),status:"pendiente"};
+let saved=false;
+try{const db=await claude.use("db");if(db){await db.collection("orders").doc("o"+Date.now()).set(o);saved=true}}catch(e){}
+const t=`🔥 NUEVO PEDIDO XITS\nProducto: ${o.prod} (${o.plan})\nPrecio: $${o.price} USD\nUsuario: ${name}\nContacto: ${contact}\n${saved?"Comprobante enviado en la web.":"Te envío mi comprobante aquí 👇"}`;
+$("msg").textContent=saved?"✅ Pedido y comprobante enviados. Abriendo WhatsApp para avisar...":"Abriendo WhatsApp: adjunta tu comprobante ahí.";
+setTimeout(()=>window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(t),"_blank"),700)}
+// admin
+(async()=>{try{const u=await claude.use("user");if(!u||!u.canEdit())return;const db=await claude.use("db");if(!db)return;
+$("adminBox").style.display="block";
+db.collection("orders").onSnapshot(s=>{const rows=[];s.forEach(d=>rows.push(d.data?d.data():d));
+$("orders").innerHTML=rows.reverse().map(o=>`<div class="order"><b>${esc(o.prod)}</b> · ${esc(o.plan)} · $${esc(o.price)}<br>${esc(o.name)} — ${esc(o.contact)}<br>${esc(o.at)}<br><a href="${o.proof}" target="_blank"><img src="${o.proof}" style="max-width:160px;margin-top:6px"></a></div>`).join("")||"Sin pedidos aún.";
+document.title=rows.length?`(${rows.length}) Ivancito × Katycita XITS`:document.title})}catch(e){}})();
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+// space background
+const cv=$("sky"),g=cv.getContext("2d");let W,H,S=[],mx=0,my=0,tx=0,ty=0;
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;S=Array.from({length:220},()=>({x:Math.random()*W,y:Math.random()*H,z:Math.random()*.9+.1}))}
+addEventListener("resize",rs);rs();
+addEventListener("pointermove",e=>{tx=e.clientX-W/2;ty=e.clientY-H/2});
+(function loop(){mx+=(tx-mx)*.06;my+=(ty-my)*.06;
+const gr=g.createRadialGradient(W/2+mx*.3,H/2+my*.3,0,W/2,H/2,Math.max(W,H)*.8);gr.addColorStop(0,"#06183a");gr.addColorStop(1,"#02040d");g.fillStyle=gr;g.fillRect(0,0,W,H);
+for(const s of S){const px=((s.x-mx*s.z*.35)%W+W)%W,py=((s.y-my*s.z*.35)%H+H)%H;
+const len=Math.hypot(mx,my)*s.z*.012;g.strokeStyle=`rgba(${80+s.z*100|0},${200+s.z*50|0},255,${.3+s.z*.7})`;g.lineWidth=s.z*1.8;g.shadowColor="#00d4ff";g.shadowBlur=s.z*8;
+g.beginPath();g.moveTo(px,py);g.lineTo(px+mx*s.z*.012*len*.1+.01,py+my*s.z*.012*len*.1+.01);g.stroke();s.y+=s.z*.15}
+g.shadowBlur=0;const cg=g.createRadialGradient(W/2+mx,H/2+my,0,W/2+mx,H/2+my,160);cg.addColorStop(0,"rgba(0,212,255,.16)");cg.addColorStop(1,"rgba(0,212,255,0)");g.fillStyle=cg;g.fillRect(0,0,W,H);
+requestAnimationFrame(loop)})();
+</script>
+</body>
+</html>
+echo "# ivanxiter-web" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/bogorquednegro-bot/ivanxiter-web.git
+git push -u origin main
